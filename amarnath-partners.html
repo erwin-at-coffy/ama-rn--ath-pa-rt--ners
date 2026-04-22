@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amarnath Partners — Strategic Advisory &amp; Corporate Consulting, Philadelphia</title>
+  <meta name="description" content="Amarnath Partners is a boutique strategic advisory firm in Philadelphia focused on go-to-market execution, operational improvement, and strategic growth initiatives.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://amarnathpartners.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://amarnathpartners.com/">
+  <meta property="og:title" content="Amarnath Partners — Strategic Advisory">
+  <meta property="og:description" content="Boutique strategic advisory focused on execution, operational improvement, and strategic growth. Philadelphia, PA.">
+  <meta property="og:site_name" content="Amarnath Partners">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Amarnath Partners">
+  <meta name="twitter:description" content="Boutique strategic advisory. Philadelphia, PA. Est. 2016.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+    ============================================================ */
+    :root {
+      --white:        #f8f7f4;
+      --off-white:    #f0ede8;
+      --charcoal:     #0f1114;
+      --charcoal-mid: #191c21;
+      --navy:         #0c1624;
+      --text:         #1a1918;
+      --text-2:       #4a4744;
+      --muted:        #6b6865;
+      --border:       #d5d0ca;
+      --border-lt:    #e6e2dc;
+      --accent:       #2b4568;
+      --accent-dim:   rgba(255,255,255,.28);
+
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans:  'Inter', system-ui, -apple-system, sans-serif;
+
+      --pad-x:  clamp(1.25rem, 5vw, 4rem);
+      --pad-y:  clamp(4rem, 9vw, 8rem);
+      --max-w:  1200px;
+      --nav-h:  68px;
+    }
+
+    /* ============================================================
+       RESET
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: inherit; }
+    address { font-style: normal; }
+
+    /* ============================================================
+       ACCESSIBILITY
+    ============================================================ */
+    .skip { position: absolute; top: -100%; left: 0; padding: .75rem 1.5rem; background: var(--charcoal); color: var(--white); font-size: .875rem; z-index: 9999; }
+    .skip:focus { top: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    /* ============================================================
+       SCROLL ANIMATION
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .9s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform .9s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-d1 { transition-delay: .12s; }
+    .reveal-d2 { transition-delay: .24s; }
+    .reveal-d3 { transition-delay: .36s; }
+    .reveal-d4 { transition-delay: .48s; }
+
+    /* ============================================================
+       NAVIGATION
+    ============================================================ */
+    .nav {
+      position: fixed; inset-block-start: 0; inset-inline: 0;
+      height: var(--nav-h); z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding-inline: var(--pad-x);
+      transition: background .35s ease, border-color .35s ease;
+    }
+    .nav.pinned {
+      background: rgba(15,17,20,.95);
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .nav__brand {
+      display: inline-flex; align-items: center;
+      text-decoration: none;
+      animation: navFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+    @keyframes navFadeIn {
+      from { opacity: 0; transform: translateY(-6px); }
+      to   { opacity: 1; transform: none; }
+    }
+    .nav__logo-img {
+      height: 70px;
+      width: auto;
+      display: block;
+      /* Converts any logo color to white for dark nav/hero background */
+      filter: brightness(0) invert(1);
+    }
+    .nav__list { display: flex; align-items: center; gap: clamp(1.25rem,3vw,2.75rem); list-style: none; }
+    .nav__list a {
+      font-size: .625rem;
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      color: rgba(248,247,244,.6);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav__list a:hover, .nav__list a:focus { color: var(--white); }
+    .nav__inquire {
+      border: 1px solid rgba(248,247,244,.3) !important;
+      padding: .5rem 1.25rem !important;
+      color: rgba(248,247,244,.8) !important;
+      transition: border-color .25s, color .25s, background .25s !important;
+    }
+    .nav__inquire:hover, .nav__inquire:focus {
+      border-color: rgba(248,247,244,.8) !important;
+      color: var(--white) !important;
+      background: rgba(255,255,255,.05) !important;
+    }
+
+    /* Hamburger */
+    .nav__burger {
+      display: none;
+      flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .nav__burger span { display: block; width: 20px; height: 1px; background: var(--white); transition: .3s; }
+    .nav__drawer {
+      display: none;
+      position: fixed; inset-block-start: var(--nav-h); inset-inline: 0;
+      background: rgba(15,17,20,.97);
+      backdrop-filter: blur(14px);
+      padding: 1.5rem var(--pad-x) 2rem;
+      z-index: 199;
+      border-top: 1px solid rgba(255,255,255,.06);
+    }
+    .nav__drawer.open { display: block; }
+    .nav__drawer a {
+      display: flex; align-items: center;
+      min-height: 44px;
+      padding: .5rem 0;
+      font-size: .625rem; letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(248,247,244,.55); text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,.05);
+      transition: color .2s;
+    }
+    .nav__drawer a:last-child { border-bottom: none; }
+    .nav__drawer a:hover { color: var(--white); }
+
+    @media (max-width: 767px) {
+      .nav__list { display: none; }
+      .nav__burger { display: flex; }
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; background: var(--charcoal);
+    }
+
+    /* Video background */
+    .hero__video-wrap {
+      position: absolute; inset: 0; overflow: hidden;
+    }
+    .hero__video {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      filter: saturate(0.25) brightness(0.5);
+      /* Slow cinematic zoom-out on load */
+      animation: heroZoom 18s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes heroZoom {
+      from { transform: scale(1.07); }
+      to   { transform: scale(1.0); }
+    }
+
+    /* Dark overlay — ensures text contrast across all devices */
+    .hero__overlay {
+      position: absolute; inset: 0;
+      background:
+        linear-gradient(to bottom,
+          rgba(9,12,16,.62) 0%,
+          rgba(9,12,16,.35) 45%,
+          rgba(9,12,16,.68) 100%);
+      background-size: 100% 220%;
+      /* Subtle breathing drift */
+      animation: ambientDrift 14s ease-in-out infinite;
+    }
+    @keyframes ambientDrift {
+      0%   { background-position: 50% 0%; }
+      50%  { background-position: 50% 10%; }
+      100% { background-position: 50% 0%; }
+    }
+    /* Subtle architectural grid on top */
+    .hero__overlay::after {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 72px 72px;
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative; z-index: 2;
+      text-align: center;
+      padding: clamp(2rem,6vw,6rem) var(--pad-x);
+      max-width: 860px;
+    }
+    .hero__eyebrow {
+      display: block;
+      font-size: .5625rem; font-weight: 400;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+      margin-bottom: 2.25rem;
+    }
+    .hero__h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.25rem, 5vw + 1rem, 4.25rem);
+      font-weight: 300; line-height: 1.15;
+      color: var(--white);
+      letter-spacing: -.01em;
+      margin-bottom: 1.75rem;
+    }
+    .hero__h1 em { font-style: italic; color: rgba(248,247,244,.6); }
+    .hero__sub {
+      font-size: clamp(.875rem, 1.4vw, .9375rem);
+      font-weight: 300; line-height: 1.75;
+      color: rgba(248,247,244,.45);
+      max-width: 480px; margin: 0 auto 3rem;
+      letter-spacing: .01em;
+    }
+
+    /* Ghost button */
+    .btn-ghost {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px;
+      padding: .875rem 2.25rem;
+      border: 1px solid rgba(248,247,244,.32);
+      font-family: var(--sans);
+      font-size: .5625rem; font-weight: 400;
+      letter-spacing: .24em; text-transform: uppercase;
+      color: rgba(248,247,244,.8);
+      text-decoration: none;
+      transition: border-color .3s, color .3s, background .3s;
+    }
+    .btn-ghost:hover, .btn-ghost:focus {
+      border-color: rgba(248,247,244,.75);
+      color: var(--white);
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero__scroll {
+      position: absolute; bottom: 2.25rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .625rem;
+    }
+    .hero__line {
+      width: 1px; height: 44px;
+      background: linear-gradient(to bottom, transparent, rgba(248,247,244,.2));
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    .hero__scroll-label { font-size: .5rem; letter-spacing: .26em; text-transform: uppercase; color: rgba(248,247,244,.25); }
+    @keyframes pulse { 0%,100%{opacity:.3} 50%{opacity:.85} }
+    @media (max-height: 620px) { .hero__scroll { display: none; } }
+
+    /* ============================================================
+       SECTION SHELL
+    ============================================================ */
+    .section { padding: var(--pad-y) var(--pad-x); }
+    .wrap { max-width: var(--max-w); margin-inline: auto; }
+
+    .s-label {
+      display: block;
+      font-size: .5625rem; font-weight: 500;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.25rem;
+    }
+    .s-label--dim { color: rgba(255,255,255,.38); }
+
+    .s-heading {
+      font-family: var(--serif);
+      font-size: clamp(1.625rem, 2.8vw, 2.625rem);
+      font-weight: 400; line-height: 1.2;
+      color: var(--text);
+    }
+    .s-heading--light { color: var(--white); }
+
+    .rule { width: 36px; height: 1px; background: var(--accent); margin-block: 1.75rem 2.5rem; }
+    .rule--light { background: var(--accent-dim); }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    .about { background: var(--white); }
+
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,8vw,7rem);
+      align-items: start;
+    }
+
+    .about__stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border-lt);
+      margin-top: 2.25rem;
+    }
+    .about__stat {
+      padding: 1.75rem 0;
+      border-right: 1px solid var(--border-lt);
+    }
+    .about__stat:last-child { border-right: none; padding-left: 1.5rem; }
+    .about__stat-n {
+      font-family: var(--serif);
+      font-size: 2.25rem; font-weight: 400;
+      color: var(--text); line-height: 1;
+    }
+    .about__stat-l {
+      font-size: .5625rem; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--muted); margin-top: .35rem;
+    }
+
+    .about__copy p {
+      font-size: clamp(.9rem, 1.4vw, 1.0625rem);
+      line-height: 1.75; color: var(--text-2);
+      margin-bottom: 1.5rem; max-width: 54ch;
+    }
+    .about__copy p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 767px) { .about__grid { grid-template-columns: 1fr; } }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    .services { background: var(--off-white); }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.25rem,2.5vw,2rem);
+      margin-top: 2.75rem;
+    }
+
+    .svc {
+      background: var(--white);
+      border-top: 2px solid var(--accent);
+      padding: clamp(1.75rem,3vw,2.75rem) clamp(1.25rem,2.5vw,2.25rem);
+    }
+    .svc__n {
+      font-family: var(--serif);
+      font-size: .8125rem; color: var(--accent);
+      letter-spacing: .1em; margin-bottom: 1.25rem; display: block;
+    }
+    .svc__title {
+      font-family: var(--serif);
+      font-size: clamp(1rem,1.6vw,1.3125rem);
+      font-weight: 400; line-height: 1.3;
+      color: var(--text); margin-bottom: .875rem;
+    }
+    .svc__micro {
+      font-size: .5625rem; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent);
+      padding-bottom: 1.125rem;
+      border-bottom: 1px solid var(--border-lt);
+      margin-bottom: 1.125rem;
+    }
+    .svc__body {
+      font-size: .875rem; line-height: 1.7; color: var(--text-2);
+      margin-bottom: 1.25rem;
+    }
+    .svc__list { list-style: none; }
+    .svc__list li {
+      display: flex; align-items: center; gap: .625rem;
+      font-size: .8rem; color: var(--muted);
+      padding: .375rem 0;
+      border-bottom: 1px solid var(--border-lt);
+    }
+    .svc__list li:last-child { border-bottom: none; }
+    .svc__list li::before {
+      content: ''; display: block;
+      width: 3px; height: 3px;
+      border-radius: 50%; background: var(--accent); flex-shrink: 0;
+    }
+
+    @media (max-width: 767px) { .services__grid { grid-template-columns: 1fr; } }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .services__grid { grid-template-columns: 1fr 1fr; }
+      .svc:last-child { grid-column: 1 / -1; max-width: calc(50% - .5rem); justify-self: start; }
+    }
+
+    /* ============================================================
+       COMPLEXITY MANAGEMENT
+    ============================================================ */
+    .complexity {
+      background: var(--charcoal-mid);
+      padding: var(--pad-y) var(--pad-x);
+      position: relative;
+      overflow: hidden;
+    }
+    .complexity__canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: .55;
+      transition: opacity 1.2s ease;
+    }
+    .complexity:hover .complexity__canvas {
+      opacity: 1;
+    }
+    .complexity__inner {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: clamp(3rem,8vw,7rem);
+      align-items: start;
+    }
+    .complexity__intro {
+      font-size: .9375rem; line-height: 1.8;
+      color: rgba(248,247,244,.38);
+      max-width: 36ch; margin-top: 1rem;
+    }
+    .complexity__pillars {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: rgba(255,255,255,.04);
+      margin-top: .25rem;
+    }
+    .cpillar {
+      background: var(--charcoal-mid);
+      padding: 1.75rem 1.5rem;
+      transition: background .5s ease;
+      cursor: default;
+    }
+    .cpillar:hover {
+      background: rgba(43, 69, 104, 0.18);
+    }
+    .cpillar:hover .cpillar__t {
+      color: rgba(255,255,255,.72);
+      transition: color .4s ease;
+    }
+    .cpillar:hover .cpillar__b {
+      color: rgba(248,247,244,.48);
+      transition: color .4s ease;
+    }
+    .cpillar__t {
+      font-size: .5625rem; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.55); margin-bottom: .75rem;
+    }
+    .cpillar__b {
+      font-size: .875rem; line-height: 1.65;
+      color: rgba(248,247,244,.35);
+    }
+
+    @media (max-width: 767px) {
+      .complexity__inner { grid-template-columns: 1fr; }
+      .complexity__pillars { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       HOW WE WORK
+    ============================================================ */
+    .how { background: var(--white); }
+    .how__intro {
+      font-size: clamp(.9375rem,1.6vw,1.0625rem);
+      line-height: 1.75; color: var(--text-2);
+      max-width: 580px; margin-bottom: 3.5rem;
+    }
+    .how__phases {
+      display: grid; grid-template-columns: repeat(4,1fr);
+    }
+    .phase {
+      padding: 2.25rem clamp(.875rem,2vw,1.875rem);
+      border-left: 1px solid var(--border-lt);
+    }
+    .phase:first-child { border-left: none; padding-left: 0; }
+    .phase__num {
+      font-family: var(--serif);
+      font-size: 2.25rem; font-weight: 400;
+      color: var(--border-lt); line-height: 1;
+      margin-bottom: 1.375rem;
+    }
+    .phase__t {
+      font-family: var(--serif);
+      font-size: 1rem; font-weight: 400;
+      color: var(--text); margin-bottom: .625rem;
+    }
+    .phase__b { font-size: .875rem; line-height: 1.65; color: var(--text-2); }
+
+    @media (max-width: 767px) {
+      .how__phases { grid-template-columns: 1fr; }
+      .phase { border-left: none; border-top: 1px solid var(--border-lt); padding: 2rem 0; }
+      .phase:first-child { border-top: none; }
+    }
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .how__phases { grid-template-columns: 1fr 1fr; }
+      .phase:nth-child(3) { border-left: none; }
+    }
+
+    /* ============================================================
+       WHO WE WORK WITH
+    ============================================================ */
+    .who { background: var(--off-white); }
+    .who__grid {
+      display: grid; grid-template-columns: repeat(2,1fr);
+      gap: clamp(1.25rem,2.5vw,2rem);
+      margin-top: 2.75rem;
+    }
+    .who__card {
+      background: var(--white);
+      padding: clamp(1.75rem,3vw,2.75rem);
+    }
+    .who__bar { width: 28px; height: 1px; background: var(--accent); margin-bottom: 1.75rem; }
+    .who__t {
+      font-family: var(--serif);
+      font-size: 1.125rem; font-weight: 400;
+      color: var(--text); margin-bottom: .875rem;
+    }
+    .who__b { font-size: .9rem; line-height: 1.7; color: var(--text-2); }
+
+    @media (max-width: 767px) { .who__grid { grid-template-columns: 1fr; } }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    .contact {
+      background: #0e1829;
+      padding: var(--pad-y) var(--pad-x);
+    }
+    .contact__inner {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: clamp(3rem,8vw,7rem);
+      align-items: start;
+    }
+    .contact__body {
+      font-size: .9375rem; line-height: 1.75;
+      color: rgba(248,247,244,.62);
+      max-width: 40ch; margin-bottom: 2.25rem;
+    }
+    .contact__addr {
+      margin-top: 2.75rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+    .contact__addr-l {
+      font-size: .5rem; letter-spacing: .3em; text-transform: uppercase;
+      color: rgba(255,255,255,.55); margin-bottom: .875rem; display: block;
+    }
+    .contact__addr-v {
+      font-family: var(--serif);
+      font-size: 1rem; line-height: 1.65;
+      color: rgba(248,247,244,.8);
+    }
+
+    /* Form */
+    .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form__group { margin-bottom: 1.125rem; }
+    .form__label {
+      display: block;
+      font-size: .5rem; letter-spacing: .24em; text-transform: uppercase;
+      color: rgba(248,247,244,.55); margin-bottom: .45rem;
+    }
+    .form__field {
+      width: 100%;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: .875rem 1rem;
+      font-family: var(--sans); font-size: .875rem;
+      color: var(--white); outline: none;
+      transition: border-color .25s, background .25s;
+      appearance: none;
+    }
+    .form__field::placeholder { color: rgba(255,255,255,.3); }
+    .form__field:focus { border-color: rgba(255,255,255,.38); background: rgba(255,255,255,.1); }
+    textarea.form__field { min-height: 96px; resize: vertical; }
+    select.form__field option { background: var(--charcoal-mid); color: var(--white); }
+
+    .btn-submit {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px;
+      padding: .9rem 2.25rem;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.35);
+      font-family: var(--sans);
+      font-size: .5625rem; font-weight: 400;
+      letter-spacing: .24em; text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+      cursor: pointer;
+      transition: border-color .3s, color .3s, background .3s;
+      margin-top: .25rem;
+    }
+    .btn-submit:hover, .btn-submit:focus {
+      border-color: rgba(255,255,255,.55);
+      color: var(--white);
+      background: rgba(255,255,255,.05);
+    }
+
+    @media (max-width: 767px) {
+      .contact__inner { grid-template-columns: 1fr; }
+      .form__row { grid-template-columns: 1fr; }
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    .footer {
+      background: var(--charcoal);
+      padding: clamp(2rem,4vw,3rem) var(--pad-x);
+      text-align: center;
+    }
+    .footer__inner {
+      max-width: var(--max-w); margin-inline: auto;
+      display: flex; flex-direction: column; align-items: center; gap: 1.375rem;
+    }
+    .footer__brand img {
+      height: 80px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: .35;
+    }
+    .footer__sep { width: 1px; height: 28px; background: rgba(255,255,255,.08); }
+    .footer__disclaimer {
+      font-size: .625rem; line-height: 1.7;
+      color: rgba(248,247,244,.2);
+      max-width: 560px;
+    }
+    .footer__meta {
+      display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
+    }
+    .footer__meta a {
+      font-size: .5625rem; letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(248,247,244,.2); text-decoration: none; transition: color .2s;
+    }
+    .footer__meta a:hover { color: rgba(248,247,244,.45); }
+    .footer__copy {
+      font-size: .5625rem; letter-spacing: .1em;
+      color: rgba(248,247,244,.15);
+    }
+
+    /* ============================================================
+       SCROLL TO TOP
+    ============================================================ */
+    .scroll-top {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: 150;
+
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
+
+      width: 44px;
+      min-height: 56px;
+      padding: .6rem 0;
+
+      background: rgba(15,17,20,.82);
+      border: 1px solid rgba(255,255,255,.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      cursor: pointer;
+
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(8px);
+      transition: opacity .35s ease, transform .35s ease,
+                  border-color .25s ease, background .25s ease;
+    }
+    .scroll-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .scroll-top:hover,
+    .scroll-top:focus {
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.35);
+      outline: none;
+    }
+    .scroll-top:focus-visible {
+      outline: 2px solid rgba(255,255,255,.4);
+      outline-offset: 2px;
+    }
+    .scroll-top__arrow {
+      display: block;
+      width: 10px;
+      height: 10px;
+      border-top: 1px solid rgba(255,255,255,.5);
+      border-right: 1px solid rgba(255,255,255,.5);
+      transform: rotate(-45deg) translate(1px, 1px);
+      transition: border-color .25s;
+    }
+    .scroll-top:hover .scroll-top__arrow,
+    .scroll-top:focus .scroll-top__arrow {
+      border-color: rgba(255,255,255,.85);
+    }
+    .scroll-top__label {
+      font-family: var(--sans);
+      font-size: .4rem;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      line-height: 1;
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      transition: color .25s;
+    }
+    .scroll-top:hover .scroll-top__label,
+    .scroll-top:focus .scroll-top__label {
+      color: rgba(255,255,255,.8);
+    }
+
+    @media (max-width: 767px) {
+      .scroll-top { bottom: 1.25rem; left: 1.25rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <a href="#main" class="skip">Skip to main content</a>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Primary navigation">
+    <a href="#" class="nav__brand" aria-label="Amarnath Partners — home">
+      <img src="https://assets.cdn.filesafe.space/xDxYUKgrMiPrhZew4cN6/media/69dfa784db7c222f7155c0f3.png"
+           alt="Amarnath Partners"
+           class="nav__logo-img"
+           width="180" height="36">
+    </a>
+
+    <ul class="nav__list">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how-we-work">How We Work</a></li>
+      <li><a href="#who-we-work-with">Who We Work With</a></li>
+      <li><a href="#contact" class="nav__inquire">Inquire</a></li>
+    </ul>
+
+    <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="nav__drawer" id="drawer" aria-hidden="true">
+    <a href="#about"           onclick="closeDrawer()">About</a>
+    <a href="#services"        onclick="closeDrawer()">Services</a>
+    <a href="#how-we-work"     onclick="closeDrawer()">How We Work</a>
+    <a href="#who-we-work-with" onclick="closeDrawer()">Who We Work With</a>
+    <a href="#contact"         onclick="closeDrawer()">Inquire</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ============================================================
+         HERO
+    ============================================================ -->
+    <section class="hero" aria-label="Introduction">
+      <div class="hero__video-wrap" aria-hidden="true">
+        <video class="hero__video" autoplay muted loop playsinline>
+          <source src="https://assets.cdn.filesafe.space/xDxYUKgrMiPrhZew4cN6/media/69dfa74b06cfeed550148d8b.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__overlay" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <span class="hero__eyebrow reveal">Philadelphia &mdash; Est. 2016</span>
+        <h1 class="hero__h1 reveal reveal-d1">
+          Strategic Growth Through<br><em>Execution and Partnerships</em>
+        </h1>
+        <p class="hero__sub reveal reveal-d2">
+          Amarnath Partners advises businesses on go-to-market execution, operational improvement, and strategic growth initiatives.
+        </p>
+        <a href="#contact" class="btn-ghost reveal reveal-d3" aria-label="Inquire about advisory services">
+          Inquire
+        </a>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <div class="hero__line"></div>
+        <span class="hero__scroll-label">Scroll</span>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+    ============================================================ -->
+    <section class="section about" id="about" aria-labelledby="h-about">
+      <div class="wrap">
+        <div class="about__grid">
+
+          <div>
+            <span class="s-label reveal">About</span>
+            <h2 class="s-heading reveal reveal-d1" id="h-about">
+              A Discreet<br>Strategic Partner
+            </h2>
+            <div class="rule reveal reveal-d2" aria-hidden="true"></div>
+            <div class="about__stats reveal reveal-d3" aria-label="Firm credentials">
+              <div class="about__stat">
+                <div class="about__stat-n">2016</div>
+                <div class="about__stat-l">Year Founded</div>
+              </div>
+              <div class="about__stat">
+                <div class="about__stat-n">PHI</div>
+                <div class="about__stat-l">Rittenhouse Square</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__copy">
+            <p class="reveal">Amarnath Partners is a private advisory firm focused on go-to-market execution, operational improvement, and strategic growth initiatives.</p>
+            <p class="reveal reveal-d1">We work with businesses and leadership teams to strengthen performance, improve execution, and support high-value strategic opportunities. Our approach is direct, senior-led, and built around the specific realities of each engagement.</p>
+            <p class="reveal reveal-d2">Founded in Philadelphia in 2016, the firm operates at the intersection of strategic consulting, corporate development, and portfolio management. We engage where complexity is highest and where the stakes require more than a presentation deck.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES
+    ============================================================ -->
+    <section class="section services" id="services" aria-labelledby="h-services">
+      <div class="wrap">
+        <span class="s-label reveal">Services</span>
+        <h2 class="s-heading reveal reveal-d1" id="h-services">Service Pillars</h2>
+        <div class="rule reveal reveal-d2" aria-hidden="true"></div>
+
+        <div class="services__grid">
+
+          <article class="svc reveal">
+            <span class="svc__n">01</span>
+            <h3 class="svc__title">Go-To-Market Advisory</h3>
+            <p class="svc__micro">Refine positioning. Execute with discipline.</p>
+            <p class="svc__body">We help businesses refine market positioning, strengthen commercial strategy, and execute growth initiatives with greater clarity and discipline.</p>
+            <ul class="svc__list" aria-label="Go-to-market advisory capabilities">
+              <li>Market positioning &amp; customer segmentation</li>
+              <li>GTM strategy &amp; commercial planning</li>
+              <li>Partnership &amp; channel development</li>
+              <li>Messaging &amp; narrative development</li>
+              <li>Sales process architecture</li>
+            </ul>
+          </article>
+
+          <article class="svc reveal reveal-d1">
+            <span class="svc__n">02</span>
+            <h3 class="svc__title">Operational Consulting</h3>
+            <p class="svc__micro">Build structures that support scalable growth.</p>
+            <p class="svc__body">We help leadership teams improve execution, strengthen internal processes, and build operating structures that support scalable growth.</p>
+            <ul class="svc__list" aria-label="Operational consulting capabilities">
+              <li>Operating model refinement</li>
+              <li>Workflow design &amp; process improvement</li>
+              <li>Organizational effectiveness</li>
+              <li>Strategic project execution</li>
+              <li>Operational efficiency programs</li>
+            </ul>
+          </article>
+
+          <article class="svc reveal reveal-d2">
+            <span class="svc__n">03</span>
+            <h3 class="svc__title">Capital Strategy &amp; Investor Readiness</h3>
+            <p class="svc__micro">Prepare for strategic opportunity with rigor.</p>
+            <p class="svc__body">We help companies prepare for growth-related financing and strategic opportunities through strong positioning, materials development, and diligence readiness.</p>
+            <ul class="svc__list" aria-label="Capital strategy capabilities">
+              <li>Capital strategy &amp; financing preparedness</li>
+              <li>Investor materials &amp; narrative development</li>
+              <li>Business plan refinement</li>
+              <li>Diligence preparation &amp; data room readiness</li>
+              <li>Strategic transaction support</li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         COMPLEXITY MANAGEMENT  (hidden strength section)
+    ============================================================ -->
+    <section class="complexity" aria-labelledby="h-complexity" id="complexitySection">
+      <canvas class="complexity__canvas" id="complexityCanvas" aria-hidden="true"></canvas>
+      <div class="wrap">
+        <div class="complexity__inner">
+
+          <div>
+            <span class="s-label s-label--dim reveal">Specialized Capability</span>
+            <h2 class="s-heading s-heading--light reveal reveal-d1" id="h-complexity">
+              Complexity<br>Management
+            </h2>
+            <div class="rule rule--light reveal reveal-d2" aria-hidden="true"></div>
+            <p class="complexity__intro reveal reveal-d3">
+              We operate in high-friction environments where standard advisory frameworks are insufficient. Our mandates have included manufacturing operations, healthcare networks, and organizations navigating structural and financial turnarounds.
+            </p>
+          </div>
+
+          <div class="complexity__pillars reveal reveal-d1" aria-label="Complexity management pillars">
+            <div class="cpillar">
+              <div class="cpillar__t">Operational Stabilization</div>
+              <p class="cpillar__b">Establishing structural clarity and baseline controls in organizations experiencing operational disruption or leadership transition.</p>
+            </div>
+            <div class="cpillar">
+              <div class="cpillar__t">Manufacturing Advisory</div>
+              <p class="cpillar__b">Optimizing operating structures in industrial environments subject to cost pressure, supply chain friction, and legacy process constraints.</p>
+            </div>
+            <div class="cpillar">
+              <div class="cpillar__t">Healthcare Operations</div>
+              <p class="cpillar__b">Restructuring operating models for healthcare networks navigating high-complexity administrative, financial, and regulatory environments.</p>
+            </div>
+            <div class="cpillar">
+              <div class="cpillar__t">Stakeholder &amp; Creditor Advisory</div>
+              <p class="cpillar__b">Providing independent perspective on operational viability, restructuring pathways, and enterprise value preservation strategies.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         HOW WE WORK
+    ============================================================ -->
+    <section class="section how" id="how-we-work" aria-labelledby="h-how">
+      <div class="wrap">
+        <span class="s-label reveal">Approach</span>
+        <h2 class="s-heading reveal reveal-d1" id="h-how">How We Work</h2>
+        <div class="rule reveal reveal-d2" aria-hidden="true"></div>
+        <p class="how__intro reveal reveal-d3">
+          Our approach combines strategic perspective with practical execution. We work closely with clients to clarify priorities, strengthen plans, and move important initiatives forward — with senior-level engagement at every stage.
+        </p>
+
+        <div class="how__phases" role="list">
+
+          <div class="phase reveal" role="listitem">
+            <div class="phase__num" aria-hidden="true">I</div>
+            <h3 class="phase__t">Diagnostic Baseline</h3>
+            <p class="phase__b">A rigorous, unsentimental assessment of the current operating model, capital structure, and strategic position — establishing a quantitative baseline for all recommendations.</p>
+          </div>
+
+          <div class="phase reveal reveal-d1" role="listitem">
+            <div class="phase__num" aria-hidden="true">II</div>
+            <h3 class="phase__t">Strategic Architecture</h3>
+            <p class="phase__b">We design the operational and commercial framework — restructuring go-to-market functions, rationalizing costs, and identifying highest-leverage partnership opportunities.</p>
+          </div>
+
+          <div class="phase reveal reveal-d2" role="listitem">
+            <div class="phase__num" aria-hidden="true">III</div>
+            <h3 class="phase__t">Execution &amp; Alignment</h3>
+            <p class="phase__b">Strategy translates into action. Senior-level engagement throughout ensures that plans produce measurable operational and commercial outcomes — not slide decks.</p>
+          </div>
+
+          <div class="phase reveal reveal-d3" role="listitem">
+            <div class="phase__num" aria-hidden="true">IV</div>
+            <h3 class="phase__t">Long-Term Stewardship</h3>
+            <p class="phase__b">We do not depart at project close. Sustained advisory and iterative model refinement ensure that value compounds over time as market conditions evolve.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHO WE WORK WITH
+    ============================================================ -->
+    <section class="section who" id="who-we-work-with" aria-labelledby="h-who">
+      <div class="wrap">
+        <span class="s-label reveal">Clients</span>
+        <h2 class="s-heading reveal reveal-d1" id="h-who">Who We Work With</h2>
+        <div class="rule reveal reveal-d2" aria-hidden="true"></div>
+
+        <div class="who__grid">
+
+          <article class="who__card reveal">
+            <div class="who__bar" aria-hidden="true"></div>
+            <h3 class="who__t">Founder-Led Businesses</h3>
+            <p class="who__b">Founders and operators who have built something significant and need a senior, independent partner to sharpen strategy, structure growth, and navigate high-stakes inflection points.</p>
+          </article>
+
+          <article class="who__card reveal reveal-d1">
+            <div class="who__bar" aria-hidden="true"></div>
+            <h3 class="who__t">Growth-Stage Companies</h3>
+            <p class="who__b">Companies pursuing expansion, new market entry, or strategic partnerships — and leadership teams that require more than a generalist engagement to execute with speed and precision.</p>
+          </article>
+
+          <article class="who__card reveal reveal-d2">
+            <div class="who__bar" aria-hidden="true"></div>
+            <h3 class="who__t">Leadership Teams in Transition</h3>
+            <p class="who__b">Leadership teams navigating structural change, operational complexity, or strategic redirection — where the cost of a misaligned advisory relationship is measured in enterprise value.</p>
+          </article>
+
+          <article class="who__card reveal reveal-d3">
+            <div class="who__bar" aria-hidden="true"></div>
+            <h3 class="who__t">Companies Pursuing Strategic Partnerships or Expansion</h3>
+            <p class="who__b">Organizations actively seeking growth through strategic alliances, channel development, or market expansion — where the quality of the partnership and the rigor of execution determine the outcome.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+    ============================================================ -->
+    <section class="contact" id="contact" aria-labelledby="h-contact">
+      <div class="wrap">
+        <div class="contact__inner">
+
+          <div>
+            <span class="s-label s-label--dim reveal">Contact</span>
+            <h2 class="s-heading s-heading--light reveal reveal-d1" id="h-contact">
+              Begin a<br>Conversation
+            </h2>
+            <div class="rule rule--light reveal reveal-d2" aria-hidden="true"></div>
+            <p class="contact__body reveal reveal-d3">
+              For inquiries, partnerships, or advisory discussions, please reach out. All correspondence is treated with the highest degree of discretion.
+            </p>
+            <a href="mailto:info@amarnathpartners.com" class="btn-ghost reveal reveal-d4">
+              info@amarnathpartners.com
+            </a>
+            <div class="contact__addr reveal">
+              <span class="contact__addr-l">Headquarters</span>
+              <address class="contact__addr-v">
+                225 S 18th Street<br>Philadelphia, PA
+              </address>
+            </div>
+          </div>
+
+          <div class="reveal reveal-d1">
+            <form id="inquiry-form" novalidate aria-label="Inquiry form">
+              <div class="form__row">
+                <div class="form__group">
+                  <label class="form__label" for="f-name">Name</label>
+                  <input type="text" id="f-name" name="name" class="form__field" placeholder="Full Name" autocomplete="name" required>
+                </div>
+                <div class="form__group">
+                  <label class="form__label" for="f-company">Organization</label>
+                  <input type="text" id="f-company" name="company" class="form__field" placeholder="Company" autocomplete="organization">
+                </div>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="f-email">Email</label>
+                <input type="email" id="f-email" name="email" class="form__field" placeholder="email@company.com" autocomplete="email" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="f-type">Inquiry Type</label>
+                <select id="f-type" name="type" class="form__field" required>
+                  <option value="" disabled selected>Select inquiry type</option>
+                  <option value="gtm">Go-To-Market Advisory</option>
+                  <option value="ops">Operational Consulting</option>
+                  <option value="capital">Capital Strategy &amp; Investor Readiness</option>
+                  <option value="complexity">Complexity Management</option>
+                  <option value="general">General Inquiry</option>
+                </select>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="f-msg">Message</label>
+                <textarea id="f-msg" name="message" class="form__field" placeholder="Briefly describe your situation and what you are looking to address." rows="4"></textarea>
+              </div>
+              <button type="submit" class="btn-submit">Submit Inquiry</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <img src="https://assets.cdn.filesafe.space/xDxYUKgrMiPrhZew4cN6/media/69dfa784db7c222f7155c0f3.png"
+             alt="Amarnath Partners"
+             width="160" height="28">
+      </div>
+      <div class="footer__sep" aria-hidden="true"></div>
+      <p class="footer__disclaimer">
+        Amarnath Partners is a private advisory firm. Nothing on this website constitutes investment, legal, or financial advice. All content is provided for informational purposes only.
+      </p>
+      <div class="footer__meta">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Use</a>
+      </div>
+      <p class="footer__copy">&copy; 2026 Amarnath Partners. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top" id="scrollTop" aria-label="Scroll to top of page">
+    <span class="scroll-top__arrow" aria-hidden="true"></span>
+    <span class="scroll-top__label">Top</span>
+  </button>
+
+  <script>
+    /* ── Nav pin on scroll ── */
+    const nav = document.getElementById('nav');
+    const scrollTopBtn = document.getElementById('scrollTop');
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      nav.classList.toggle('pinned', y > 50);
+      scrollTopBtn.classList.toggle('visible', y > 400);
+    }, { passive: true });
+
+    /* ── Scroll to top ── */
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    /* ── Mobile drawer ── */
+    const burger = document.getElementById('burger');
+    const drawer = document.getElementById('drawer');
+    let drawerOpen = false;
+
+    burger.addEventListener('click', () => {
+      drawerOpen = !drawerOpen;
+      drawer.classList.toggle('open', drawerOpen);
+      burger.setAttribute('aria-expanded', drawerOpen);
+      drawer.setAttribute('aria-hidden', !drawerOpen);
+    });
+
+    function closeDrawer() {
+      drawerOpen = false;
+      drawer.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+      drawer.setAttribute('aria-hidden', 'true');
+    }
+
+    document.addEventListener('click', e => {
+      if (drawerOpen && !nav.contains(e.target) && !drawer.contains(e.target)) closeDrawer();
+    });
+
+    /* ── Scroll reveal ── */
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+
+    reveals.forEach(el => {
+      // Hero fires immediately on page load
+      if (el.closest('.hero')) {
+        const idx = [...el.closest('.hero__content').children].indexOf(el);
+        setTimeout(() => el.classList.add('visible'), 180 + idx * 140);
+      } else {
+        observer.observe(el);
+      }
+    });
+
+    /* ── Form submit (mailto fallback for static hosting) ── */
+    document.getElementById('inquiry-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const data = new FormData(this);
+      const name    = data.get('name')    || '';
+      const company = data.get('company') || '';
+      const email   = data.get('email')   || '';
+      const type    = data.get('type')    || '';
+      const message = data.get('message') || '';
+      const subject = encodeURIComponent('Inquiry — ' + (type || 'General'));
+      const body    = encodeURIComponent(
+        'Name: ' + name + '\nOrganization: ' + company + '\nEmail: ' + email +
+        '\nInquiry Type: ' + type + '\n\n' + message
+      );
+      window.location.href = 'mailto:info@amarnathpartners.com?subject=' + subject + '&body=' + body;
+    });
+
+    /* ── Complexity section: particle network canvas ── */
+    (function () {
+      const section  = document.getElementById('complexitySection');
+      const canvas   = document.getElementById('complexityCanvas');
+      if (!canvas || !section) return;
+      const ctx = canvas.getContext('2d');
+
+      const NODE_COUNT   = 32;
+      const MAX_DIST     = 155;
+      const BASE_SPEED   = 0.28;
+      const NODE_R       = 1.8;
+      /* colour — cool blue-white matching the reference image */
+      const HUE = '185, 210, 235';
+
+      let W, H, nodes = [], hovered = false, raf;
+
+      /* target & current opacity factors for smooth hover transition */
+      let opTarget = 0, opCurrent = 0;
+
+      function resize() {
+        const rect = section.getBoundingClientRect();
+        W = canvas.width  = rect.width;
+        H = canvas.height = rect.height;
+      }
+
+      function makeNode() {
+        const angle = Math.random() * Math.PI * 2;
+        const speed = BASE_SPEED * (0.5 + Math.random() * 0.8);
+        return {
+          x:  Math.random() * W,
+          y:  Math.random() * H,
+          vx: Math.cos(angle) * speed,
+          vy: Math.sin(angle) * speed,
+        };
+      }
+
+      function init() {
+        resize();
+        nodes = Array.from({ length: NODE_COUNT }, makeNode);
+      }
+
+      function tick() {
+        ctx.clearRect(0, 0, W, H);
+
+        /* smooth lerp toward target opacity */
+        opCurrent += (opTarget - opCurrent) * 0.04;
+        const op = 0.28 + opCurrent * 0.38;   /* range: 0.28 → 0.66 */
+
+        /* move nodes, wrap edges */
+        nodes.forEach(n => {
+          n.x += n.vx;
+          n.y += n.vy;
+          if (n.x < 0)  n.x = W;
+          if (n.x > W)  n.x = 0;
+          if (n.y < 0)  n.y = H;
+          if (n.y > H)  n.y = 0;
+        });
+
+        /* draw edges */
+        for (let i = 0; i < nodes.length; i++) {
+          for (let j = i + 1; j < nodes.length; j++) {
+            const dx   = nodes[i].x - nodes[j].x;
+            const dy   = nodes[i].y - nodes[j].y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < MAX_DIST) {
+              const lineOp = op * (1 - dist / MAX_DIST) * 0.7;
+              ctx.beginPath();
+              ctx.moveTo(nodes[i].x, nodes[i].y);
+              ctx.lineTo(nodes[j].x, nodes[j].y);
+              ctx.strokeStyle = `rgba(${HUE}, ${lineOp})`;
+              ctx.lineWidth   = 0.6;
+              ctx.stroke();
+            }
+          }
+        }
+
+        /* draw nodes */
+        nodes.forEach(n => {
+          /* subtle glow on hover */
+          if (opCurrent > 0.1) {
+            ctx.beginPath();
+            ctx.arc(n.x, n.y, NODE_R * 4, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${HUE}, ${opCurrent * 0.04})`;
+            ctx.fill();
+          }
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, NODE_R, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${HUE}, ${op * 0.9})`;
+          ctx.fill();
+        });
+
+        raf = requestAnimationFrame(tick);
+      }
+
+      /* hover listeners */
+      section.addEventListener('mouseenter', () => { hovered = true;  opTarget = 1; });
+      section.addEventListener('mouseleave', () => { hovered = false; opTarget = 0; });
+
+      /* resize observer — canvas must match section size */
+      const ro = new ResizeObserver(() => { resize(); nodes = Array.from({ length: NODE_COUNT }, makeNode); });
+      ro.observe(section);
+
+      /* reduced-motion: skip animation, render single static frame */
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (prefersReduced) {
+        init(); opCurrent = 0.15; tick(); cancelAnimationFrame(raf);
+      } else {
+        init(); tick();
+      }
+    })();
+  </script>
+</body>
+</html>
